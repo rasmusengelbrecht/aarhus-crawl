@@ -1,5 +1,8 @@
-altair
+streamlit
+streamlit-extras
+matplotlib
 numpy
 pandas
-pydeck
-streamlit
+Pillow
+requests
+streamlit_lottie

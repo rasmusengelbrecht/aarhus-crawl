@@ -116,7 +116,7 @@ rules = [
 # Creating DataFrame
 df = pd.DataFrame(data)
 
-
+@st.cache_data
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -160,7 +160,7 @@ if col2.button('Generate Pub Crawl'):
         display_columns = ['Bar', 'Link', 'Rule']
     else:
         display_columns = ['Bar', 'Link']
-
+    
     display_df = selected_bars[display_columns].reset_index(drop=True)
 
     # Store the pub crawl list in session state

@@ -104,7 +104,7 @@ if st.session_state.pub_crawl_list is not None:
     # This assumes that 'Bar' values are unique and can be used to merge/filter DataFrames
     map_data = pd.merge(
         st.session_state.pub_crawl_list[['Bar']], 
-        df[['Bar', 'lat', 'lon']], 
+        df[['Bar', 'latitude', 'longitude']], 
         on='Bar', 
         how='left'
     )

@@ -23,87 +23,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
 
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.Bar} is a :{row.Tags}:")
-
-# Data
-data = {
-    "Bar": [
-        "Vinstuen", "Clemens Bar", "Force Majeure", "Thorkilds", "El Loco", "GBAR", "Lecoq", 
-        "Mig og Ølsnedkeren", "Pinot", "Tír na nÓg", "Oops", "Panenka", "Herr Bartels", 
-        "Café Under Masken", "ÅBEN", "Cafe Guldhornene", "Bodegaen", "Pustervig", "Heidi's Bier Bar", 
-        "Escobar", "Hos Anders", "ZenZa", "Two Socks Ginbar", "Barstart", "Tokio Bar", 
-        "Sjovinisten", "Der Kuhstall", "The Old Irish Pub", "Ris Ras Filliongongong", "Erlings Jazz- & Ølbar", 
-        "Café Smagløs", "Zanders", "MasVino", "Sherlock Holmes Pub", "Shen Mao", "Rabalder Bar", 
-        "Den Gyldne Kro", "Kurts Mor", "Bro Cafeen", "Hos Anton", "Hjorten", "Værtshuset", 
-        "Mundhæld", "Flintstone Pub", "Willi's", "Jysk Vin", "Plan B", "Pica Pica", 
-        "Vin & Petanque", "Vincaféen", "S'vinbar", "Bar Smil"
-    ],
-    "Link": [
-        "https://maps.app.goo.gl/iddeNS8EaZKxqnZn6",
-        "https://maps.app.goo.gl/ttcHVuooQLadU5Mv7",
-        "https://maps.app.goo.gl/6nvXjgtMoCU7D6aQ8",
-        "https://maps.app.goo.gl/Nsg4kbV7Fto2WrF66",
-        "https://maps.app.goo.gl/QJ3iSVz9LYahZiLn9",
-        "https://maps.app.goo.gl/2rWsHtjEncjW18JL8",
-        "https://maps.app.goo.gl/ptSkM7LukTo1TZFB7",
-        "https://maps.app.goo.gl/tRRqjsPtQj9aB2bZA",
-        "https://maps.app.goo.gl/3imtZg9kwkBC7Ug58",
-        "https://maps.app.goo.gl/MKjRCPkzUDYg4aCs9",
-        "https://maps.app.goo.gl/vQktmGXACcZYyEjj9",
-        "https://maps.app.goo.gl/mgqsKCG9a1EF4DtTA",
-        "https://maps.app.goo.gl/1cvSjrobzaHN7898A",
-        "https://maps.app.goo.gl/XhGh9UR4cdZw34GX8",
-        "https://maps.app.goo.gl/oRcXyb5shhgLBwEm9",
-        "https://maps.app.goo.gl/wDNS19SStrUqc7pY7",
-        "https://maps.app.goo.gl/uEKLJ6WnMuPSmijZ8",
-        "https://maps.app.goo.gl/6hH4g8VJxLZugjEs7",
-        "https://maps.app.goo.gl/sRsYjgYcZpK8AgqeA",
-        "https://maps.app.goo.gl/E31RpqvsmBdXeYec6",
-        "https://maps.app.goo.gl/sdqwa77gxUEt3W4m6",
-        "https://maps.app.goo.gl/uPyv7fGGddWL9Cv1A",
-        "https://maps.app.goo.gl/ky27qDVMXBE7PohTA",
-        "https://maps.app.goo.gl/Z5i8XFQBizyW1VJ37",
-        "https://maps.app.goo.gl/GnRofWNECryjZ7qR8",
-        "https://maps.app.goo.gl/BSoHQzeCUXKbpUp89",
-        "https://maps.app.goo.gl/A9tNeRjW31CKLumd9",
-        "https://maps.app.goo.gl/7Wj3htv5XCKzYBweA",
-        "https://maps.app.goo.gl/xTDYni3vmNK3Rk3d8",
-        "https://maps.app.goo.gl/7dUHMLppmifzM7KHA",
-        "https://maps.app.goo.gl/viGAhNbhEXUqbV4C8",
-        "https://maps.app.goo.gl/MkN7ZajprNkKi1hh8",
-        "https://maps.app.goo.gl/xbYMriUunmCxfhxv7",
-        "https://maps.app.goo.gl/GYPTovABfFgM2bhS9",
-        "https://maps.app.goo.gl/7G5Ktpi8fgmtro138",
-        "https://maps.app.goo.gl/2JNwJ433SbScj4gn6",
-        "https://maps.app.goo.gl/2zo3Bx3UMe4c2SJXA",
-        "https://maps.app.goo.gl/9KzkQ1Rugt9pvMySA",
-        "https://maps.app.goo.gl/RjVjrb4juNPvG7rz5",
-        "https://maps.app.goo.gl/MtFYN4Rhg8UtQJq78",
-        "https://maps.app.goo.gl/tuEW2rJFy6ezGZ2S9",
-        "https://maps.app.goo.gl/x8LpbAb4ZKJeocTt9",
-        "https://maps.app.goo.gl/CmwYwxrEzEH1tdU78",
-        "https://maps.app.goo.gl/DL1mqcw5EG6zp1fz5",
-        "https://maps.app.goo.gl/G8nTnmo53AV8bJJF7",
-        "https://maps.app.goo.gl/YHUyBmVd7gQvBgq47",
-        "https://maps.app.goo.gl/a8cDiQbmi5JmCFPg6",
-        "https://maps.app.goo.gl/r5Bv5GDewAHz2XrC6",
-        "https://maps.app.goo.gl/ntW36Ggm2cA8NPMZ7",
-        "https://maps.app.goo.gl/9sW2YvsovcuHHZtv8",
-        "https://maps.app.goo.gl/48hauTSfceNz4bTj6",
-        "https://maps.app.goo.gl/hipqxGtNzNrzQhAA6"
-    ],
-    "Tags": [
-        "Bodega", "Bar", "Cocktail Bar", "Bodega", "Bar", "Bar", "Bodega", "Brewery",
-        "Wine Bar", "Bar", "Bar", "Bar", "Cocktail Bar", "Bodega", "Brewery", "Bar",
-        "Bodega", "Bar", "Bar", "Bar", "Bodega", "Cocktail Bar", "Cocktail Bar",
-        "Cocktail Bar", "Bar", "Wine Bar", "Bar", "Bar", "Bodega", "Bodega", "Bar",
-        "Bar", "Wine Bar", "Bar", "Bar", "Bar", "Bar", "Bodega", "Bodega", "Bodega",
-        "Bodega", "Bodega", "Bodega", "Bodega", "Bodega", "Bar", "Wine Bar", "Wine Bar",
-        "Wine Bar", "Wine Bar", "Wine Bar", "Bar"    
-    ]
-}
+st.map(df)
 
 rules = [
     "The Hug or handshake Bar: Everyone have to hug or handshake the bartender",
@@ -120,9 +40,6 @@ rules = [
     "The Retro Bar: Everyone talks as if they’re in a past decade while in the bar.",
     "The Dance Move Bar: Each person must perform a dance move before ordering their drink."
 ]
-
-# Creating DataFrame
-df = pd.DataFrame(data)
 
 @st.cache_data
 def load_lottieurl(url: str):

@@ -108,7 +108,7 @@ if st.session_state.pub_crawl_list is not None:
     )
 
     # Now display the map with only the selected bars
-    st.map(map_data, size=20, color='#0044ff')
+    st.map(map_data, size=10, color='#0044ff')
 
 st.write("")
 st.write("")

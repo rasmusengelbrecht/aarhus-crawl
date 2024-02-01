@@ -5,6 +5,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
+from streamlit_gsheets import GSheetsConnection
 import time
 
 st.set_page_config(page_title="Aarhus Crawl", page_icon=":beers:")
@@ -17,7 +18,14 @@ st.markdown(
     """
 )
 
-import pandas as pd
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
+
+df = conn.read()
+
+# Print results.
+for row in df.itertuples():
+    st.write(f"{row.Bar} is a :{row.Tags}:")
 
 # Data
 data = {

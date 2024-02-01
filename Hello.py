@@ -23,8 +23,6 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
 
-st.map(df)
-
 rules = [
     "The Hug or handshake Bar: Everyone have to hug or handshake the bartender",
     "The Moonwalk Bar: Only walk backwards inside the bar",

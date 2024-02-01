@@ -100,6 +100,17 @@ if st.session_state.pub_crawl_list is not None:
         use_container_width=True
     )
 
+    # Extract the relevant bars from the original DataFrame based on the selection
+    # This assumes that 'Bar' values are unique and can be used to merge/filter DataFrames
+    map_data = pd.merge(
+        st.session_state.pub_crawl_list[['Bar']], 
+        df[['Bar', 'lat', 'lon']], 
+        on='Bar', 
+        how='left'
+    )
+
+    # Now display the map with only the selected bars
+    st.map(map_data)
 
 st.write("")
 st.write("")

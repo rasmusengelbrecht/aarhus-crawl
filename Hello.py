@@ -1,7 +1,6 @@
 import streamlit as st
 import random
 import requests
-import streamlit as st
 import pandas as pd
 from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner

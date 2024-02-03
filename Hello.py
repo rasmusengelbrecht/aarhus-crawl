@@ -60,7 +60,7 @@ if 'pub_crawl_list' not in st.session_state:
 with st.expander("Settings"):
     number_of_bars = st.number_input('How many bars do you want to visit?', min_value=1, max_value=len(df), value=5)
     include_rules = st.checkbox('Do you want to include a rule for each bar?', value=True)
-    bar_types = st.multiselect('Select the types of bars you want to visit', options=all_bar_types, default=all_bar_types)
+    bar_types = st.multiselect('Select the types of bars you want to visit', options=all_bar_types, default=['Bar','Bodega','Brewery','Wine Bar'])
 
 col1, col2, col3 = st.columns(3)
 

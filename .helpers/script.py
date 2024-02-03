@@ -10,6 +10,8 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
 
+df = df[pd.isna(df['latitude'])]
+
 print(df)
 
 from geopy.geocoders import Nominatim
@@ -21,7 +23,7 @@ geolocator = Nominatim(user_agent="streamlitTest")
 
 
 # entering the location name
-getLoc = geolocator.geocode("Vinstuen")
+getLoc = geolocator.geocode("Chaos - Geologisk Fredagsbar")
 
 # printing address
 print(getLoc.address)

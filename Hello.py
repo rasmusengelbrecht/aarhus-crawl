@@ -38,19 +38,6 @@ rules = [
     "The Dance Move Bar: Each person must perform a dance move before ordering their drink."
 ]
 
-# Function to format the DataFrame into a string
-def format_pub_crawl_list(df):
-    formatted_string = ""
-    for index, row in df.iterrows():
-        bar_name = row['Bar']
-        link = row['Link']
-        rule = row.get('Rule', '')  # Get the rule if it exists
-        formatted_string += f"Bar: {bar_name}\nLink: {link}\n"
-        if rule:
-            formatted_string += f"Rule: {rule}\n"
-        formatted_string += "\n"  # Add an extra newline for spacing between entries
-    return formatted_string
-
 @st.cache_data
 def load_lottieurl(url: str):
     r = requests.get(url)

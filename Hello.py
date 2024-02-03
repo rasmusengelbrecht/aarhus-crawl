@@ -127,7 +127,6 @@ if st.session_state.pub_crawl_list is not None:
     st.text_area(
         label="📝 Copy + Paste Your Notes", 
         value=formatted_list, 
-        height=600, 
         help="Copy and paste this list into your notes or send it to your friends.",
     )
 

@@ -58,9 +58,9 @@ def format_pub_crawl_list(df):
         bar_name = row['Bar']
         link = row['Link']
         rule = row.get('Rule', '')  # Get the rule if it exists
-        formatted_string += f"Bar: {bar_name}\nLink: {link}\n"
+        formatted_string += f"📍 {bar_name}\n🔗 {link}\n"
         if rule:
-            formatted_string += f"Rule: {rule}\n"
+            formatted_string += f"🧑‍⚖️ {rule}\n"
         formatted_string += "\n"  # Add an extra newline for spacing between entries
     return formatted_string
 
@@ -127,7 +127,7 @@ if st.session_state.pub_crawl_list is not None:
     st.text_area(
         label="Your Personalized Pub Crawl List", 
         value=formatted_list, 
-        height=300, 
+        height=400, 
         help="Copy and paste this list into your notes or send it to your friends."
     )
 

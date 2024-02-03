@@ -123,12 +123,12 @@ if st.session_state.pub_crawl_list is not None:
     st.map(map_data, size=10, color='#0044ff')
 
     formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)
-    st.download_button(
-        label="Download Pub Crawl List",
-        data=formatted_list,
-        file_name="pub_crawl_list.txt",
-        mime="text/plain",
-        help="Download your personalized pub crawl list."
+    st.text_area(
+        label="Your Personalized Pub Crawl List", 
+        value=formatted_list, 
+        height=300, 
+        help="Copy and paste this list into your notes or send it to your friends.",
+        readonly=True
     )
 
 

@@ -125,10 +125,10 @@ if st.session_state.pub_crawl_list is not None:
     # Display the formatted pub crawl list in a text area for the user to copy
     formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)
     st.text_area(
-        label="Your Personalized Pub Crawl List", 
+        label="📝 Copy + Paste Your Notes", 
         value=formatted_list, 
-        height=400, 
-        help="Copy and paste this list into your notes or send it to your friends."
+        height=600, 
+        help="Copy and paste this list into your notes or send it to your friends.",
     )
 
 st.write("")

@@ -119,13 +119,11 @@ if st.session_state.pub_crawl_list is not None:
         how='left'
     )
 
-    with st.expander("Map 🗺️"):
-        # Now display the map with only the selected bars
-        st.map(
-            map_data,
-            size=10, 
-            color='#0044ff'
-        )
+    # Now display the map with only the selected bars
+    st.map(
+        map_data,
+        size=10, 
+        color='#0044ff')
 
     # Display the formatted pub crawl list in a text area for the user to copy
     formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)

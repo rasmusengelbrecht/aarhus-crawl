@@ -101,8 +101,18 @@ if col2.button('Generate Pub Crawl'):
     # Store the pub crawl list in session state
     st.session_state.pub_crawl_list = display_df
 
+
 # Display the pub crawl list if it exists in session state
 if st.session_state.pub_crawl_list is not None:
+    
+    st.divider()
+    
+    st.markdown(
+    """
+        #### 💃🏽🕺🏻 Your personalised crawl is ready:
+    """
+    )
+
     st.dataframe(
         st.session_state.pub_crawl_list,
         column_config={"Link": st.column_config.LinkColumn("Link", display_text="Maps")},

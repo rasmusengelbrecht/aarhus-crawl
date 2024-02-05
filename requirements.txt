@@ -7,3 +7,4 @@ Pillow
 requests
 streamlit_lottie
 st-gsheets-connection
+streamlit-pills

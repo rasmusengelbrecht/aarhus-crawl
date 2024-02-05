@@ -6,6 +6,7 @@ from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
 from streamlit_gsheets import GSheetsConnection
 import time
+from streamlit_pills import pills
 
 st.set_page_config(page_title="Aarhus Crawl", page_icon=":beers:")
 
@@ -48,8 +49,8 @@ def load_lottieurl(url: str):
 lottie_progress_url = "https://lottie.host/5e357569-5f59-4d8d-851a-18a5fb7e6acb/1RJiom1Oif.json"
 lottie_progress = load_lottieurl(lottie_progress_url)
 
-# List of all unique bar types
-all_bar_types = list(set(df['Tags']))
+# List of all unique bar types excluding 'Uni Friday Bar'
+all_bar_types = [tag for tag in set(df['Tags']) if tag != 'Uni Friday Bar']
 
 # Function to format the DataFrame into a string
 def format_pub_crawl_list(df):
@@ -71,9 +72,17 @@ if 'pub_crawl_list' not in st.session_state:
 
 # User Inputs
 with st.expander("Settings"):
+    crawl_type = pills("Label", ["City Center", "University Friday Bars"], ["🥳", "👨‍🎓"], label_visibility='collapsed')
     number_of_bars = st.number_input('How many bars do you want to visit?', min_value=1, max_value=len(df), value=5)
     include_rules = st.checkbox('Do you want to include a rule for each bar?', value=True)
-    bar_types = st.multiselect('Select the types of bars you want to visit', options=all_bar_types, default=['Bar','Bodega','Brewery','Wine Bar'])
+
+    # Conditionally show the multiselect based on crawl_type
+    if crawl_type != "University Friday Bars":
+        bar_types = st.multiselect('Select the types of bars you want to visit', options=all_bar_types, default=['Bar','Bodega','Brewery'])
+    else:
+        # Automatically set bar_types to 'Uni Friday Bar' if the crawl type is University Friday Bars
+        bar_types = ['Uni Friday Bar']
+
 
 col1, col2, col3 = st.columns(3)
 

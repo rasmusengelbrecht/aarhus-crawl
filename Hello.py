@@ -110,6 +110,9 @@ if st.session_state.pub_crawl_list is not None:
         use_container_width=True
     )
 
+    # Display the formatted pub crawl list in a text area for the user to copy
+    formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)
+
     # Extract the relevant bars from the original DataFrame based on the selection
     # This assumes that 'Bar' values are unique and can be used to merge/filter DataFrames
     map_data = pd.merge(
@@ -119,20 +122,24 @@ if st.session_state.pub_crawl_list is not None:
         how='left'
     )
 
-    # Now display the map with only the selected bars
-    st.map(
-        map_data,
-        size=10, 
-        color='#0044ff')
+    # Use an expander for the map
+    with st.expander("🗺️ Show Map"):
+        # Now display the map with only the selected bars
+        st.map(
+            map_data,
+            size=15, 
+            color='#0044ff'
+        )
 
-    # Display the formatted pub crawl list in a text area for the user to copy
-    formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)
-    st.text_area(
-        label="📝 Copy + Paste Your Notes", 
+    # Use an expander for the textarea
+    with st.expander("📝 Copy + Paste in your Notes/Chat"):    
+        st.text_area(
+        label="Select All, Copy + Paste in Notes or a group chat", 
         value=formatted_list, 
-        height=600, 
+        height=800, 
         help="Copy and paste this list into your notes or send it to your friends.",
     )
+
 
 
 st.write("")

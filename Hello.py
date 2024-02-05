@@ -128,7 +128,8 @@ if st.session_state.pub_crawl_list is not None:
         st.map(
             map_data,
             size=15, 
-            color='#0044ff'
+            color='#0044ff',
+            use_container_width=True
         )
 
     # Use an expander for the textarea

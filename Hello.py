@@ -129,17 +129,17 @@ if st.session_state.pub_crawl_list is not None:
             map_data,
             size=15, 
             color='#0044ff',
-            use_container_width=True
+            use_container_width=False
         )
 
     # Use an expander for the textarea
     with st.expander("📝 Copy + Paste in your Notes/Chat"):    
         st.text_area(
-        label="Select All, Copy + Paste in Notes or a group chat", 
-        value=formatted_list, 
-        height=800, 
-        help="Copy and paste this list into your notes or send it to your friends.",
-    )
+            label="Select All, Copy + Paste in Notes or a group chat", 
+            value=formatted_list, 
+            height=800, 
+            help="Copy and paste this list into your notes or send it to your friends.",
+        )
 
 
 

@@ -109,10 +109,12 @@ if st.session_state.pub_crawl_list is not None:
     
     st.markdown(
     """
-        #### 💃🏽🕺🏻 Your personalised crawl is ready:
+        #### 💃🏽🕺🏻 Your personalised crawl is ready:  
     """
     )
 
+    st.write("")
+    
     st.dataframe(
         st.session_state.pub_crawl_list,
         column_config={"Link": st.column_config.LinkColumn("Link", display_text="Maps")},

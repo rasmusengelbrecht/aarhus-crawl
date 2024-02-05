@@ -104,17 +104,7 @@ if col2.button('Generate Pub Crawl'):
 
 # Display the pub crawl list if it exists in session state
 if st.session_state.pub_crawl_list is not None:
-    
-    st.divider()
-    
-    st.markdown(
-    """
-        #### 💃🏽🕺🏻 Your personalised crawl is ready:  
-    """
-    )
 
-    st.write("")
-    
     st.dataframe(
         st.session_state.pub_crawl_list,
         column_config={"Link": st.column_config.LinkColumn("Link", display_text="Maps")},
@@ -152,7 +142,6 @@ if st.session_state.pub_crawl_list is not None:
             height=800, 
             help="Copy and paste this list into your notes or send it to your friends.",
         )
-
 
 
 st.write("")

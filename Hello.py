@@ -55,11 +55,16 @@ rules = [
     "The Compliments Bar: You must give a compliment to a stranger before placing your drink order",
     "The Whisper Bar: Everyone must speak in whispers. If someone speaks at a normal volume, they buy a round of snacks.",
     "The No-Name Bar: You can’t say anyone’s name. If you do, you have to sing a chorus of a popular song.",
-    "The Hat Trick Bar: Everyone must wear something on their head inside the bar.",
-    "The High-Five Bar: You must high-five at least three different people in the bar.",
-    "The Sock Swap Bar: Everyone swaps one sock with a friend for the duration of the stay in the bar.",
-    "The Retro Bar: Everyone talks as if they’re in a past decade while in the bar.",
-    "The Dance Move Bar: Each person must perform a dance move before ordering their drink."
+    "The Confession Bar: Make a confession to the group before ordering.",
+    "The High-Five Bar: Everyone must high-five at least three different people in the bar.",
+    "The Dance Move Bar: Each person must perform a dance move before ordering their drink.",
+    "The Compliment Chain Bar: Give a compliment to someone outside your group, and they must pass it on to someone else.",
+    "The Group Photo Bar: Take a group photo with new friends you meet at the bar.",
+    "The Challenge Bar: Politely challenge someone outside your group to a friendly contest (like rock-paper-scissors).",
+    "The Toast Master Bar: Make a toast with a group of strangers.",
+    "The Good Deed Bar: Do a small, kind deed for someone in the bar.",
+    "The Hidden Talent Bar: Share a hidden talent with a stranger, or discover theirs.",
+    "",
 ]
 
 

@@ -8,8 +8,16 @@ from streamlit_gsheets import GSheetsConnection
 import time
 from streamlit_pills import pills
 
-
 st.set_page_config(page_title="Aarhus Crawl", page_icon=":beers:")
+
+hide_streamlit_style = """
+            <style>
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 st.markdown(
     """

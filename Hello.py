@@ -8,7 +8,12 @@ from streamlit_gsheets import GSheetsConnection
 import time
 from streamlit_pills import pills
 
+#-------------------------- Page Config --------------------------------
+
 st.set_page_config(page_title="Aarhus Crawl", page_icon=":beers:")
+
+
+#----------------- Hide Streamlit footer, header -----------------------
 
 hide_streamlit_style = """
             <style>
@@ -19,6 +24,9 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
+#--------------------------------------------------------------------
+
+
 st.markdown(
     """
         # Aarhus Crawl 🍻
@@ -27,10 +35,16 @@ st.markdown(
     """
 )
 
+
+#-------------------- Load Google Sheet Data --------------------------
+
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
+
+
+#----------------------- Define Rules -----------------------------
 
 rules = [
     "The Hug or handshake Bar: Everyone have to hug or handshake the bartender",
@@ -48,6 +62,9 @@ rules = [
     "The Dance Move Bar: Each person must perform a dance move before ordering their drink."
 ]
 
+
+#-------------------- Get Lottie Animation --------------------------
+
 @st.cache_data
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -57,6 +74,9 @@ def load_lottieurl(url: str):
 
 lottie_progress_url = "https://lottie.host/5e357569-5f59-4d8d-851a-18a5fb7e6acb/1RJiom1Oif.json"
 lottie_progress = load_lottieurl(lottie_progress_url)
+
+
+#---------------------- Handle Bar Info ----------------------------
 
 # List of all unique bar types excluding 'Uni Friday Bar'
 all_bar_types = [tag for tag in set(df['Tags']) if tag != 'Uni Friday Bar']
@@ -75,6 +95,8 @@ def format_pub_crawl_list(df):
     return formatted_string
 
 
+#------------------------- Settings -------------------------------
+
 # Initialize session state for the pub crawl list
 if 'pub_crawl_list' not in st.session_state:
     st.session_state.pub_crawl_list = None
@@ -92,6 +114,8 @@ with st.expander("Settings"):
         # Automatically set bar_types to 'Uni Friday Bar' if the crawl type is University Friday Bars
         bar_types = ['Uni Friday Bar']
 
+
+#--------------------- Generate Pub Crawl ---------------------------
 
 col1, col2, col3 = st.columns(3)
 
@@ -120,9 +144,12 @@ if col2.button('Generate Pub Crawl'):
     st.session_state.pub_crawl_list = display_df
 
 
+#-------------------- Display Pub Crawl --------------------------
+
 # Display the pub crawl list if it exists in session state
 if st.session_state.pub_crawl_list is not None:
 
+    #-------------------- Dataframe --------------------------
     st.dataframe(
         st.session_state.pub_crawl_list,
         column_config={"Link": st.column_config.LinkColumn("Link", display_text="Maps")},
@@ -130,8 +157,7 @@ if st.session_state.pub_crawl_list is not None:
         use_container_width=True
     )
 
-    # Display the formatted pub crawl list in a text area for the user to copy
-    formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)
+    #-------------------- Show Map --------------------------
 
     # Extract the relevant bars from the original DataFrame based on the selection
     # This assumes that 'Bar' values are unique and can be used to merge/filter DataFrames
@@ -152,6 +178,11 @@ if st.session_state.pub_crawl_list is not None:
             use_container_width=False
         )
 
+    #-------------------- Show Textarea --------------------------
+        
+    # Display the formatted pub crawl list in a text area for the user to copy
+    formatted_list = format_pub_crawl_list(st.session_state.pub_crawl_list)
+
     # Use an expander for the textarea
     with st.expander("📝 Copy + Paste in your Notes/Chat"):    
         st.text_area(
@@ -162,6 +193,8 @@ if st.session_state.pub_crawl_list is not None:
         )
 
 
+#-------------------- Add Footer --------------------------
+        
 st.write("")
 
 st.divider()

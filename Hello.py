@@ -63,8 +63,7 @@ rules = [
     "The Challenge Bar: Politely challenge someone outside your group to a friendly contest (like rock-paper-scissors).",
     "The Toast Master Bar: Make a toast with a group of strangers.",
     "The Good Deed Bar: Do a small, kind deed for someone in the bar.",
-    "The Hidden Talent Bar: Share a hidden talent with a stranger, or discover theirs.",
-    "",
+    "The Hidden Talent Bar: Share a hidden talent with a stranger, or discover theirs."
 ]
 
 

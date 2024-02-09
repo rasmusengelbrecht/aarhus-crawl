@@ -156,7 +156,7 @@ if st.session_state.pub_crawl_list is not None:
     #-------------------- Dataframe --------------------------
     st.dataframe(
         st.session_state.pub_crawl_list,
-        column_config={"Link": st.column_config.LinkColumn("Link")},#, display_text="Maps"
+        column_config={"Link": st.column_config.LinkColumn("Link", display_text="Maps")},#, display_text="Maps"
         hide_index=True, 
         use_container_width=True
     )

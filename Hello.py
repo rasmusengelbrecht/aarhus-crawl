@@ -177,9 +177,10 @@ if st.session_state.pub_crawl_list is not None:
         # Now display the map with only the selected bars
         st.map(
             map_data,
-            size=15, 
+            size=20, 
             color='#0044ff',
-            use_container_width=False
+            use_container_width=False,
+            zoom=12
         )
 
     #-------------------- Show Textarea --------------------------
